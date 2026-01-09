@@ -3,7 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
-const dbPath = path.join(__dirname, '..', 'healthcare.db');
+// Use a persistent data directory for production (e.g., Render Disks)
+// Default to the project root for local development
+const dataDir = process.env.DATA_DIR || path.join(__dirname, '..');
+const dbPath = path.join(dataDir, 'healthcare.db');
 
 let db = null;
 let SQL = null;
