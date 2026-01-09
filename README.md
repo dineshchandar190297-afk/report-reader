@@ -1,95 +1,116 @@
-# Healthcare Imaging / Report Explainer
+# 🏥 AI Medical Report Reader & Explainer
 
-An AI-powered healthcare web application that allows patients and clinicians to upload medical reports and receive clear explanations.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
+[![AI Engine](https://img.shields.io/badge/AI-Google%20Gemini-blue)](https://deepmind.google/technologies/gemini/)
 
-## Features
+A premium, production-ready healthcare web application designed to bridge the gap between medical jargon and patient understanding. Using advanced OCR and Generative AI, this platform transforms complex medical reports (X-rays, MRIs, Blood Tests) into clear, actionable insights in multiple languages.
 
-- 🏥 **Animated Landing Page** - Hospital/lab environment animation
-- 🔐 **User Authentication** - Login/Signup with role selection (Patient/Clinician)
-- 📤 **Multi-format Upload** - Support for PDF, CSV, XML, JPG, PNG
-- 🔬 **OCR Processing** - Text extraction from images using Tesseract.js
-- 🤖 **AI-Powered Analysis** - Intelligent medical report interpretation
-- 📊 **Dual Explanations** - Short summary and detailed explanation
-- 👥 **Two Modes** - Patient (simple language) and Clinician (technical)
-- 🌐 **Multilingual** - English, Tamil, Hindi support
-- 💬 **AI Chatbot** - Context-aware Q&A about uploaded reports
-- ⚠️ **Medical Disclaimers** - Clear safety messaging throughout
+---
 
-## Tech Stack
+## 🌟 Key Features
 
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Backend**: Node.js, Express.js
-- **Database**: SQLite (better-sqlite3)
-- **OCR**: Tesseract.js
-- **PDF Parsing**: pdf-parse
-- **File Upload**: Multer
+### 🔬 Intelligent Analysis
+- **Advanced OCR**: Extracts text from images (JPG, PNG) using Tesseract.js and parses PDF/XML/CSV documents.
+- **Dual Perspective AI**: Generates two distinct explanations:
+    - **Patient Mode**: Simplified, jargon-free language focused on "What does this mean for me?".
+    - **Clinician Mode**: Technical, structured analysis featuring medical terminology for professional review.
+- **Contextual Chatbot**: A persistent AI assistant that "remembers" your report and answers follow-up questions.
 
-## Installation
+### 🌎 Accessibility & UI
+- **Multilingual Support**: Fully localized in **English, Tamil, and Hindi**.
+- **Cinematic Experience**: A high-end, animated entrance sequence that builds trust and sets a professional tone.
+- **Role-Based Dashboards**: Tailored experiences for Patients and Clinicians with strict access control.
 
-```bash
-# Install dependencies
-npm install
+### 🛡️ Security & Ethics
+- **Privacy First**: Secure authentication and role-based data isolation.
+- **Clear Disclaimers**: Integrated medical safety warnings throughout the user journey.
 
-# Start the server
-npm start
+---
 
-# For development with auto-reload
-npm run dev
+## 🛠️ Technology Stack
+
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | Vanilla JS, CSS3 (Custom Design System), HTML5 |
+| **Backend** | Node.js, Express.js |
+| **AI/ML** | Google Gemini Pro (Analysis), Tesseract.js (OCR) |
+| **Database** | SQLite (Persistent Storage) |
+| **Session** | Express Session with secure cookie handling |
+
+---
+
+## 📂 Project Structure
+
+```text
+ai-medical-report-reader/
+├── database/           # SQLite schema and initialization
+├── public/             # Frontend assets (HTML, CSS, JS, Images)
+│   ├── css/            # Modular stylesheets (animations, components, UI)
+│   ├── js/             # Core logic (auth, dashboard, analysis, chat)
+│   └── assets/         # UI icons and multimedia
+├── routes/             # Express API endpoints
+│   ├── auth.js         # Authentication & Language settings
+│   ├── upload.js       # File handling (Multer) & Storage
+│   ├── analysis.js     # AI processing & OCR integration
+│   └── chat.js         # Contextual AI conversation
+├── uploads/            # Temporary file storage (Persistent Local)
+├── server.js           # Express application entry point
+└── .env                # Sensitive credentials (API Keys)
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file:
+## 🚀 Getting Started
 
-```
-PORT=3000
-SESSION_SECRET=your-secret-key
-GEMINI_API_KEY=your-api-key (optional)
-```
+### Prerequisites
+- Node.js 18+
+- [Google AI Studio API Key](https://aistudio.google.com/app/apikey)
 
-## Supported Report Types
+### Local Installation
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/dineshchandar190297-afk/report-reader.git
+   cd report-reader
+   ```
 
-- X-Ray
-- MRI
-- CT Scan
-- Blood/Lab Tests
-- Handwritten Reports
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Supported File Formats
+3. **Configure Environment Variables**
+   Create a `.env` file in the root directory:
+   ```env
+   PORT=3000
+   SESSION_SECRET=your_secret_key_here
+   GEMINI_API_KEY=your_google_gemini_api_key
+   ```
 
-- PDF Documents
-- CSV Spreadsheets
-- XML Files
-- JPG/JPEG Images
-- PNG Images
+4. **Launch the application**
+   ```bash
+   npm run dev
+   ```
+   Visit `http://localhost:3000` to start.
 
-## API Endpoints
+---
 
-### Authentication
-- `POST /api/auth/register` - Create new account
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-- `GET /api/auth/me` - Get current user
-- `PUT /api/auth/language` - Update language preference
+## ☁️ Deployment Guide
 
-### Upload
-- `POST /api/upload` - Upload medical report
-- `GET /api/upload/reports` - Get user's reports
-- `GET /api/upload/reports/:id` - Get single report
-- `DELETE /api/upload/reports/:id` - Delete report
+For a detailed walkthrough on deploying to **Render** with persistent storage (to keep your database and uploads safe), please refer to our [Deployment Documentation](./docs/DEPLOYMENT.md).
 
-### Analysis
-- `POST /api/analysis/analyze/:reportId` - Analyze uploaded report
-- `GET /api/analysis/results/:reportId` - Get analysis results
+---
 
-### Chat
-- `POST /api/chat/:reportId` - Send message to AI
-- `GET /api/chat/history/:reportId` - Get chat history
+## ⚠️ Medical Disclaimer
 
-## Medical Disclaimer
+This application is powered by Artificial Intelligence and is intended **for educational and informational purposes only**. It does not provide medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this application.
 
-⚠️ This application is for educational purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult with qualified healthcare professionals for medical decisions.
+---
 
-## License
+## 📜 License
 
-MIT License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+**Built with ❤️ for a Healthier World.**
