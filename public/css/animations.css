@@ -1,0 +1,570 @@
+/* Animation Styles - Landing Page */
+
+.animation-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #e0f2fe 0%, #f0fdfa 50%, #ffffff 100%);
+    overflow: hidden;
+}
+
+.hospital-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    pointer-events: none;
+}
+
+.hospital-building {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 300px;
+    background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.hospital-cross {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: #ef4444;
+    font-weight: 800;
+}
+
+.hospital-windows {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 100px 40px 40px;
+}
+
+.window {
+    width: 60px;
+    height: 80px;
+    background: #94a3b8;
+    border-radius: 8px;
+    transition: background 0.5s ease;
+}
+
+.window.light {
+    background: linear-gradient(135deg, #fef08a, #fde047);
+    box-shadow: 0 0 20px rgba(253, 224, 71, 0.5);
+}
+
+.clouds {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    height: 200px;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    opacity: 0.8;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 150px;
+    height: 50px;
+    top: 20px;
+    left: 10%;
+    animation: float 20s ease-in-out infinite;
+}
+
+.cloud-1::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 30px;
+}
+
+.cloud-2 {
+    width: 120px;
+    height: 40px;
+    top: 60px;
+    right: 15%;
+    animation: float 18s ease-in-out infinite reverse;
+}
+
+.cloud-2::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 20px;
+}
+
+.cloud-3 {
+    width: 100px;
+    height: 35px;
+    top: 100px;
+    left: 30%;
+    animation: float 22s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(40px) translateY(-10px);
+    }
+}
+
+.animation-scene {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin-bottom: 48px;
+}
+
+.animation-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.animation-stage.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.stage-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #475569;
+    white-space: nowrap;
+}
+
+.patient-character {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: walkIn 2s ease forwards;
+}
+
+@keyframes walkIn {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.patient-body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.patient-body.small {
+    transform: scale(0.7);
+}
+
+.patient-head {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #fcd34d, #fbbf24);
+    border-radius: 50%;
+    position: relative;
+}
+
+.patient-head::before {
+    content: '😊';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+
+.patient-head.happy::before {
+    content: '😄';
+    animation: bounce 0.5s ease infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-50%, -60%);
+    }
+}
+
+.patient-torso {
+    width: 50px;
+    height: 70px;
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    border-radius: 12px 12px 0 0;
+    margin-top: -10px;
+}
+
+.patient-legs {
+    display: flex;
+    gap: 10px;
+    margin-top: -5px;
+}
+
+.leg {
+    width: 18px;
+    height: 50px;
+    background: #334155;
+    border-radius: 0 0 8px 8px;
+}
+
+.patient-report {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    animation: holdReport 2s ease infinite;
+}
+
+@keyframes holdReport {
+
+    0%,
+    100% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(5deg);
+    }
+}
+
+.report-icon {
+    font-size: 2.5rem;
+}
+
+.reception-desk {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+}
+
+.desk-surface {
+    width: 200px;
+    height: 80px;
+    background: linear-gradient(135deg, #92400e, #78350f);
+    border-radius: 12px 12px 0 0;
+}
+
+.receptionist {
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+}
+
+.receptionist-body {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-radius: 50%;
+    position: relative;
+}
+
+.receptionist-body::before {
+    content: '👩‍💼';
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.computer-icon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+}
+
+.patient-at-desk {
+    position: absolute;
+    right: -100px;
+    bottom: 0;
+}
+
+.submit-animation {
+    position: absolute;
+    left: -20px;
+    top: 20px;
+}
+
+.document-fly {
+    font-size: 1.5rem;
+    animation: flyDocument 2s ease-in-out infinite;
+}
+
+@keyframes flyDocument {
+    0% {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-160px) rotate(-15deg);
+        opacity: 0;
+    }
+}
+
+.ai-processing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.ai-brain {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brain-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #0ea5e9;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.brain-icon {
+    font-size: 3rem;
+    z-index: 1;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px rgba(14, 165, 233, 0.5));
+    }
+
+    to {
+        filter: drop-shadow(0 0 20px rgba(14, 165, 233, 0.8));
+    }
+}
+
+.processing-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.processing-dots span {
+    width: 12px;
+    height: 12px;
+    background: #0ea5e9;
+    border-radius: 50%;
+    animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+.processing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.processing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+.results-reveal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.result-card {
+    position: relative;
+    padding: 32px 48px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    animation: revealCard 1s ease forwards;
+}
+
+@keyframes revealCard {
+    0% {
+        transform: scale(0) rotateY(180deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1) rotateY(0);
+        opacity: 1;
+    }
+}
+
+.card-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.2) 0%, transparent 70%);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.checkmark {
+    width: 60px;
+    height: 60px;
+    background: #22c55e;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.result-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.title-overlay {
+    text-align: center;
+    margin-bottom: 32px;
+    z-index: 10;
+}
+
+.app-title {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin-bottom: 8px;
+}
+
+.app-subtitle {
+    font-size: 1.25rem;
+    color: #475569;
+}
+
+#get-started-btn {
+    z-index: 10;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.page-enter {
+    animation: pageEnter 0.5s ease forwards;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

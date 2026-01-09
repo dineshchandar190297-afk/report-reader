@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Healthcare Imaging / Report Explainer - AI-powered medical report analysis for patients and clinicians">
+    <meta name="keywords" content="healthcare, medical report, AI analysis, radiology, lab reports">
+    <title>Healthcare Imaging / Report Explainer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+    <!-- Landing Page with Animation -->
+    <div id="landing-page" class="page active">
+        <div class="animation-container">
+            <!-- Skip Intro Button - Always Visible -->
+            <button id="skip-intro-btn" class="btn-skip">
+                <span>Skip Intro</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                    <line x1="19" y1="5" x2="19" y2="19"></line>
+                </svg>
+            </button>
+
+            <!-- Animation Scene -->
+            <div class="animation-scene">
+                <!-- Hospital Background -->
+                <div class="hospital-bg">
+                    <div class="hospital-building">
+                        <div class="hospital-cross">+</div>
+                        <div class="hospital-windows">
+                            <div class="window light"></div>
+                            <div class="window"></div>
+                            <div class="window light"></div>
+                            <div class="window"></div>
+                            <div class="window light"></div>
+                            <div class="window"></div>
+                        </div>
+                    </div>
+                    <div class="clouds">
+                        <div class="cloud cloud-1"></div>
+                        <div class="cloud cloud-2"></div>
+                        <div class="cloud cloud-3"></div>
+                    </div>
+                </div>
+
+                <!-- Animation Stages -->
+                <div class="animation-stage stage-1" id="stage-1">
+                    <div class="patient-character">
+                        <div class="patient-body">
+                            <div class="patient-head"></div>
+                            <div class="patient-torso"></div>
+                            <div class="patient-legs">
+                                <div class="leg left"></div>
+                                <div class="leg right"></div>
+                            </div>
+                        </div>
+                        <div class="patient-report">
+                            <div class="report-icon">📋</div>
+                        </div>
+                    </div>
+                    <div class="stage-text">Patient arrives with medical report...</div>
+                </div>
+
+                <div class="animation-stage stage-2" id="stage-2">
+                    <div class="reception-desk">
+                        <div class="desk-surface"></div>
+                        <div class="receptionist">
+                            <div class="receptionist-body"></div>
+                        </div>
+                        <div class="computer-icon">💻</div>
+                    </div>
+                    <div class="patient-at-desk">
+                        <div class="patient-body small">
+                            <div class="patient-head"></div>
+                        </div>
+                        <div class="submit-animation">
+                            <div class="document-fly">📄</div>
+                        </div>
+                    </div>
+                    <div class="stage-text">Submitting report for analysis...</div>
+                </div>
+
+                <div class="animation-stage stage-3" id="stage-3">
+                    <div class="ai-processing">
+                        <div class="ai-brain">
+                            <div class="brain-pulse"></div>
+                            <div class="brain-icon">🧠</div>
+                        </div>
+                        <div class="processing-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="data-streams">
+                            <div class="stream stream-1"></div>
+                            <div class="stream stream-2"></div>
+                            <div class="stream stream-3"></div>
+                        </div>
+                    </div>
+                    <div class="stage-text">AI analyzing your report...</div>
+                </div>
+
+                <div class="animation-stage stage-4" id="stage-4">
+                    <div class="results-reveal">
+                        <div class="result-card">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="checkmark">✓</div>
+                                <div class="result-text">Clear Explanation Ready!</div>
+                            </div>
+                        </div>
+                        <div class="happy-patient">
+                            <div class="patient-body">
+                                <div class="patient-head happy"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stage-text">Your results are ready!</div>
+                </div>
+            </div>
+
+            <!-- App Title Overlay -->
+            <div class="title-overlay">
+                <h1 class="app-title gradient-text">Healthcare Imaging / Report Explainer</h1>
+                <p class="app-subtitle">AI-Powered Medical Report Analysis</p>
+            </div>
+
+            <!-- Get Started Button - Hidden Initially -->
+            <button id="get-started-btn" class="btn-primary btn-large hidden">
+                <span>Get Started</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" class="page">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h1 class="gradient-text">Welcome Back</h1>
+                <p>Sign in to access your reports</p>
+            </div>
+
+            <div class="bento-card auth-card">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-email">Email ID</label>
+                        <input type="email" id="login-email" name="email" required placeholder="Enter your email">
+                        <div class="input-focus-ring"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="login-password" name="password" required
+                                placeholder="Enter your password">
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg class="eye-closed hidden" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                    </path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full">
+                        <span>Login</span>
+                    </button>
+
+                    <div class="form-links">
+                        <a href="#" id="forgot-password-link" class="link">Forgot Password?</a>
+                        <span class="separator">•</span>
+                        <a href="#" id="create-account-link" class="link">Create New Account</a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="language-selector-auth">
+                <label>Language:</label>
+                <select id="language-select-login" class="language-dropdown">
+                    <option value="english">English</option>
+                    <option value="tamil">தமிழ்</option>
+                    <option value="hindi">हिंदी</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Page -->
+    <div id="signup-page" class="page">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h1 class="gradient-text">Create Account</h1>
+                <p>Join us to understand your medical reports better</p>
+            </div>
+
+            <div class="bento-card auth-card">
+                <form id="signup-form">
+                    <!-- Role Selection -->
+                    <div class="form-group role-selection">
+                        <label>Select Your Role</label>
+                        <div class="role-options">
+                            <label class="role-option">
+                                <input type="radio" name="role" value="patient" required>
+                                <div class="role-card">
+                                    <div class="role-icon">👤</div>
+                                    <span>Patient</span>
+                                </div>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="role" value="clinician">
+                                <div class="role-card">
+                                    <div class="role-icon">👨‍⚕️</div>
+                                    <span>Clinician</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-username">Username</label>
+                            <input type="text" id="signup-username" name="username" required
+                                placeholder="Choose a username">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-email">Email ID</label>
+                            <input type="email" id="signup-email" name="email" required placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-mobile">Mobile Number</label>
+                            <input type="tel" id="signup-mobile" name="mobile" required placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-dob">Date of Birth</label>
+                            <input type="date" id="signup-dob" name="dateOfBirth" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-gender">Gender</label>
+                        <select id="signup-gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-password">Password</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="signup-password" name="password" required
+                                    placeholder="Create password">
+                                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                    <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="eye-closed hidden" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                        </path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="password-strength-fill"></div>
+                                </div>
+                                <div class="password-requirements">
+                                    <span class="requirement" data-req="length">8+ characters</span>
+                                    <span class="requirement" data-req="uppercase">Uppercase</span>
+                                    <span class="requirement" data-req="number">Number</span>
+                                    <span class="requirement" data-req="special">Special char</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-confirm-password">Confirm Password</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="signup-confirm-password" name="confirmPassword" required
+                                    placeholder="Confirm password">
+                                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                    <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    <svg class="eye-closed hidden" width="20" height="20" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <path
+                                            d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                        </path>
+                                        <line x1="1" y1="1" x2="23" y2="23"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="password-match-indicator" id="password-match"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full">
+                        <span>Create Account</span>
+                    </button>
+
+                    <div class="form-links center">
+                        <span>Already have an account?</span>
+                        <a href="#" id="login-link" class="link">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboard-page" class="page">
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <h2 class="gradient-text">Healthcare Explainer</h2>
+            </div>
+            <div class="nav-controls">
+                <div class="mode-switch">
+                    <button class="mode-btn active" data-mode="patient">
+                        <span class="mode-icon">👤</span>
+                        <span class="mode-text">Patient Mode</span>
+                    </button>
+                    <button class="mode-btn" data-mode="clinician">
+                        <span class="mode-icon">👨‍⚕️</span>
+                        <span class="mode-text">Clinician Mode</span>
+                    </button>
+                </div>
+                <select id="language-select" class="language-dropdown">
+                    <option value="english">English</option>
+                    <option value="tamil">தமிழ்</option>
+                    <option value="hindi">हिंदी</option>
+                </select>
+                <div class="user-menu">
+                    <button class="user-menu-btn" id="user-menu-btn">
+                        <span class="user-avatar" id="user-avatar">U</span>
+                        <span class="user-name" id="user-name">User</span>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <a href="#" id="logout-btn">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Medical Disclaimer Banner -->
+        <div class="disclaimer-banner">
+            <div class="disclaimer-icon">⚠️</div>
+            <p>MEDICAL DISCLAIMER: This analysis is for educational purposes only and does not constitute medical
+                advice, diagnosis, or treatment. Always consult with qualified healthcare professionals.</p>
+        </div>
+
+        <!-- Main Dashboard Content -->
+        <main class="dashboard-main">
+            <!-- Upload Section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title gradient-text">Upload Medical Report</h2>
+                    <p class="section-subtitle">Upload your medical report or imaging file for AI-powered analysis</p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Upload Card -->
+                    <div class="bento-card upload-card" id="upload-card">
+                        <div class="upload-dropzone" id="upload-dropzone">
+                            <div class="dropzone-icon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="dragDropMultiple">Drag & Drop your files here</h3>
+                            <p data-i18n="orClickBrowseMultiple">or click to browse (multiple files supported)</p>
+                            <div class="supported-formats">
+                                <span class="format-badge">PDF</span>
+                                <span class="format-badge">CSV</span>
+                                <span class="format-badge">XML</span>
+                                <span class="format-badge">JPG</span>
+                                <span class="format-badge">PNG</span>
+                            </div>
+                            <p class="upload-limit" data-i18n="maxFilesLimit">Max 10 files • 10MB each</p>
+                            <input type="file" id="file-input" accept=".pdf,.csv,.xml,.jpg,.jpeg,.png" multiple hidden>
+                        </div>
+
+                        <!-- Multiple Files Preview -->
+                        <div class="files-preview hidden" id="files-preview">
+                            <div class="files-preview-header">
+                                <h4><span id="files-count">0</span> <span data-i18n="filesSelected">files
+                                        selected</span></h4>
+                                <div class="preview-actions">
+                                    <button class="btn-add-more" id="add-more-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                        <span data-i18n="addMore">Add More</span>
+                                    </button>
+                                    <button class="btn-clear-all" id="clear-all-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <polyline points="3 6 5 6 21 6"></polyline>
+                                            <path
+                                                d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                            </path>
+                                        </svg>
+                                        <span data-i18n="clearAll">Clear All</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="files-grid" id="files-grid">
+                                <!-- File cards will be inserted here dynamically -->
+                            </div>
+                            <input type="file" id="file-input-additional" accept=".pdf,.csv,.xml,.jpg,.jpeg,.png"
+                                multiple hidden>
+                        </div>
+                    </div>
+
+                    <!-- Report Type Selection -->
+                    <div class="bento-card report-type-card">
+                        <h3>Select Report Type</h3>
+                        <div class="report-type-grid">
+                            <label class="report-type-option">
+                                <input type="radio" name="reportType" value="xray">
+                                <div class="type-card">
+                                    <div class="type-icon">🦴</div>
+                                    <span>X-Ray</span>
+                                </div>
+                            </label>
+                            <label class="report-type-option">
+                                <input type="radio" name="reportType" value="mri">
+                                <div class="type-card">
+                                    <div class="type-icon">🧲</div>
+                                    <span>MRI</span>
+                                </div>
+                            </label>
+                            <label class="report-type-option">
+                                <input type="radio" name="reportType" value="ctscan">
+                                <div class="type-card">
+                                    <div class="type-icon">📡</div>
+                                    <span>CT Scan</span>
+                                </div>
+                            </label>
+                            <label class="report-type-option">
+                                <input type="radio" name="reportType" value="bloodtest">
+                                <div class="type-card">
+                                    <div class="type-icon">🩸</div>
+                                    <span>Blood Test</span>
+                                </div>
+                            </label>
+                            <label class="report-type-option">
+                                <input type="radio" name="reportType" value="labtest">
+                                <div class="type-card">
+                                    <div class="type-icon">🔬</div>
+                                    <span>Lab Test</span>
+                                </div>
+                            </label>
+                            <label class="report-type-option">
+                                <input type="radio" name="reportType" value="handwritten">
+                                <div class="type-card">
+                                    <div class="type-icon">✍️</div>
+                                    <span>Handwritten</span>
+                                </div>
+                            </label>
+                        </div>
+                        <button class="btn-primary btn-full" id="analyze-btn" disabled>
+                            <span>Analyze Report</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section (Hidden until analysis) -->
+            <section class="dashboard-section results-section hidden" id="results-section">
+                <div class="section-header">
+                    <h2 class="section-title gradient-text">Analysis Results</h2>
+                    <p class="section-subtitle">Understanding your medical report</p>
+                </div>
+
+                <div class="bento-grid results-grid">
+                    <!-- Extracted Data Table -->
+                    <div class="bento-card data-card" id="extracted-data-card">
+                        <div class="card-header">
+                            <h3>📊 Extracted Data</h3>
+                        </div>
+                        <div class="data-table-container" id="data-table-container">
+                            <!-- Table will be inserted here -->
+                        </div>
+                        <div class="data-note" id="data-note"></div>
+                    </div>
+
+                    <!-- Short Explanation -->
+                    <div class="bento-card explanation-card short-explanation" id="short-explanation-card">
+                        <div class="card-header">
+                            <h3>📝 Brief Summary</h3>
+                            <span class="badge">Quick Overview</span>
+                        </div>
+                        <div class="explanation-content" id="short-explanation-content">
+                            <!-- Content will be inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Long Explanation -->
+                    <div class="bento-card explanation-card long-explanation" id="long-explanation-card">
+                        <div class="card-header">
+                            <h3>📖 Detailed Explanation</h3>
+                            <span class="badge">In-Depth Analysis</span>
+                        </div>
+                        <div class="explanation-content" id="long-explanation-content">
+                            <!-- Content will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Reports -->
+            <section class="dashboard-section reports-history-section" id="reports-history-section">
+                <div class="section-header">
+                    <h2 class="section-title gradient-text">Recent Reports</h2>
+                </div>
+                <div class="reports-list" id="reports-list">
+                    <!-- Reports will be inserted here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- AI Chatbot -->
+        <div class="chatbot-container" id="chatbot-container">
+            <button class="chatbot-toggle" id="chatbot-toggle">
+                <div class="chatbot-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <span class="chatbot-label">AI Assistant</span>
+            </button>
+
+            <div class="chatbot-panel hidden" id="chatbot-panel">
+                <div class="chatbot-header">
+                    <div class="chatbot-title">
+                        <div class="ai-avatar">🤖</div>
+                        <div>
+                            <h4>AI Assistant</h4>
+                            <span class="status online">Online</span>
+                        </div>
+                    </div>
+                    <button class="chatbot-close" id="chatbot-close">✕</button>
+                </div>
+
+                <div class="chatbot-messages" id="chatbot-messages">
+                    <div class="chat-message bot">
+                        <div class="message-avatar">🤖</div>
+                        <div class="message-content">
+                            <p>Hello! I'm your AI assistant. Upload a medical report and I can help you understand it.
+                                Ask me anything about your report!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chatbot-input-container">
+                    <input type="text" id="chat-input" placeholder="Ask about your report..." disabled>
+                    <button class="chat-send-btn" id="chat-send-btn" disabled>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loading-text" id="loading-text">Processing...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal hidden" id="forgot-password-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content bento-card">
+            <div class="modal-header">
+                <h3>Reset Password</h3>
+                <button class="modal-close" data-close="forgot-password-modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your email address and we'll send you a link to reset your password.</p>
+                <form id="forgot-password-form">
+                    <div class="form-group">
+                        <label for="reset-email">Email ID</label>
+                        <input type="email" id="reset-email" required placeholder="Enter your email">
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Send Reset Link</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+
+</html>
